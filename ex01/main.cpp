@@ -42,6 +42,7 @@ int main( void ) {
       std::cout << std::setw(20) << std::right << "Darkest Secret: ";
       std::string darkest_secret;
       std::cin >> darkest_secret;
+      
       Contact new_contact(first_name, last_name, nickname, phone_number, darkest_secret);
       data.AddContactToDatabase(new_contact);
     }
