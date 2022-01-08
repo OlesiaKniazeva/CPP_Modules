@@ -1,6 +1,6 @@
 #include "Database.hpp"
 
-void  ShowTextHowToUseProgramm(int type) {
+static void  ShowTextHowToUseProgramm(int type) {
   if (type == 1) {
     std::cout << "Input a command: " << std::endl;
   }
@@ -17,9 +17,15 @@ int main( void ) {
   Database data;
 
   ShowTextHowToUseProgramm(1);
-  while (std::cout << "Enter command: " && std::cin >> command) {
-
-    if (command == "EXIT") {
+  while (true) {
+    std::cout << "Enter command: ";
+    std::cin >> command;
+    if (std::cin.peek() != '\n'
+         || !(command == "SEARCH" || command == "EXIT" || command == "ADD")) {
+      ShowTextHowToUseProgramm(2);
+      std::cin.ignore(30000, '\n');
+    }
+    else if (command == "EXIT") {
       exit(0);
     }
     else if (command == "ADD") {
@@ -46,16 +52,20 @@ int main( void ) {
       Contact new_contact(first_name, last_name, nickname, phone_number, darkest_secret);
       data.AddContactToDatabase(new_contact);
     }
-    else if (command == "SEARCH") {
+    else { //if (command == "SEARCH")
       if (data.ShowContactsFromDatabase()) {
-      int index_of_desired_contact;
-      std::cout << "Enter index of contact you want to see: ";
-      std::cin >> index_of_desired_contact;
-      data.ShowInfoOfDesiredContact( index_of_desired_contact );
+        int index_of_desired_contact;
+        std::cout << "Enter index of contact you want to see: ";
+        std::cin >> index_of_desired_contact;
+        if (std::cin.fail()) {
+          std::cout << "    Wrong input" << std::endl;
+          std::cin.clear();
+          std::cin.ignore(30000, '\n');
+        }
+        else {
+          data.ShowInfoOfDesiredContact( index_of_desired_contact );
+        }
       }
-    }
-    else {
-      ShowTextHowToUseProgramm(2);
     }
   }
 }
