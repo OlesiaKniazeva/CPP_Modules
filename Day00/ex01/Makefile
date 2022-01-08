@@ -6,7 +6,7 @@ CC = clang++ -std=c++98
 
 HEADER = Database.hpp Contact.hpp
 
-CFLAGS = -g -Wall -Wextra -Werror
+CFLAGS = -glldb -Wall -Wextra -Werror
 
 O_DIR = obj
 
