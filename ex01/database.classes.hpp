@@ -3,10 +3,12 @@
 
 #include <iostream>
 #include <iomanip>
+#include <stdlib.h>
 
 class Contact {
 
   public:
+
     Contact ( void );
     Contact ( std::string first_name, std::string last_name,
               std::string nickname, std::string phone_number,
