@@ -41,11 +41,11 @@ std::string  FormatString(std::string data) {
 }
 
 std::ostream& operator<<(std::ostream& stream, const Contact contact) {
-  std::cout << contact.GetFirstName() << std::endl;
-  std::cout << contact.GetLastName() << std::endl;
-  std::cout << contact.GetNickname() << std::endl;
-  std::cout << contact.GetPhoneNumber() << std::endl;
-  std::cout << contact.GetDarkestSecret();
+  std::cout << std::setw(20) << "First name: " << contact.GetFirstName() << std::endl;
+  std::cout << std::setw(20) << "Last name: " << contact.GetLastName() << std::endl;
+  std::cout << std::setw(20) << "Nickname: " << contact.GetNickname() << std::endl;
+  std::cout << std::setw(20) << "Phone number: " << contact.GetPhoneNumber() << std::endl;
+  std::cout << std::setw(20) << "Secret word: " << contact.GetDarkestSecret();
   return (stream);
 }
 
@@ -59,7 +59,7 @@ void  Database::ShowInfoOfDesiredContact( int index_of_desired_contact) {
             std::cout << database_[index_of_desired_contact - 1] << std::endl;
     }
   else {
-    std::cout << "Index not valid" << std::endl;
+    std::cout << "    Index not valid" << std::endl;
   }
 }
 
@@ -71,7 +71,7 @@ bool  Database::ShowContactsFromDatabase( void ) const {
   else
     iterations = 8;
   if (iterations == 0) {
-    std::cout << "No contacts in PhoneBook" << std::endl;
+    std::cout  <<"    No contacts in PhoneBook" << std::endl;
     return false;
   }
   else {
