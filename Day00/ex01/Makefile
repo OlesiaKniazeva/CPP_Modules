@@ -1,10 +1,10 @@
 NAME = phone_book
 
-SRCS = phone_book.cpp main.cpp
+SRCS = Database.cpp Contact.cpp main.cpp
 
 CC = clang++ -std=c++98
 
-HEADER = database.classes.hpp
+HEADER = Database.hpp Contact.hpp
 
 CFLAGS = -g -Wall -Wextra -Werror
 
