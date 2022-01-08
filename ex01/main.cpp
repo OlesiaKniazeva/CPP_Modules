@@ -42,14 +42,14 @@ int main( void ) {
       std::cout << std::setw(20) << std::right << "Darkest Secret: ";
       std::string darkest_secret;
       std::cin >> darkest_secret;
-      
+
       Contact new_contact(first_name, last_name, nickname, phone_number, darkest_secret);
       data.AddContactToDatabase(new_contact);
     }
     else if (command == "SEARCH") {
       if (data.ShowContactsFromDatabase()) {
       int index_of_desired_contact;
-      std::cout << "Enter index of data you want to see: ";
+      std::cout << "Enter index of contact you want to see: ";
       std::cin >> index_of_desired_contact;
       data.ShowInfoOfDesiredContact( index_of_desired_contact );
       }
