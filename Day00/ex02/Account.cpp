@@ -5,6 +5,8 @@
 Account::Account( int initial_deposit ) : _amount(initial_deposit) {
   _accountIndex = _nbAccounts++;
   _totalAmount += _amount;
+  _nbDeposits = 0;
+  _nbWithdrawals = 0;
   _displayTimestamp();
   std::cout << " "
             << "index:" << _accountIndex << ";"
