@@ -1,4 +1,4 @@
-NAME = Zombies
+NAME = zombies
 
 SRCS = main.cpp newZombie.cpp randomChump.cpp Zombie.cpp
 
@@ -6,7 +6,7 @@ CC = clang++ -std=c++98
 
 HEADER = Zombie.hpp
 
-CFLAGS = -glddb -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
 
 O_DIR = obj
 
