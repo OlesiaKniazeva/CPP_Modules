@@ -6,7 +6,7 @@ CC = clang++ -std=c++98
 
 HEADER = Weapon.hpp HumanA.hpp HumanB.hpp
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -glldb -Wall -Wextra -Werror
 
 O_DIR = obj
 
