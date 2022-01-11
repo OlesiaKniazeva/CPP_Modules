@@ -1,4 +1,4 @@
-NAME = task
+NAME = replace
 
 SRCS = main.cpp
 
