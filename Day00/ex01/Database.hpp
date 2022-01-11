@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include <iomanip>
-#include <stdlib.h>
+#include <cstdlib>
 #include "Contact.hpp"
 
 class Database {
