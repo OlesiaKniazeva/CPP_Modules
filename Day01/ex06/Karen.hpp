@@ -5,13 +5,16 @@
 
 class Karen {
   public:
-  void complain( std::string level );
+  Karen(void);
+  void complain_filter( std::string level );
+  void complain (int num);
 
   private:
     void debug( void );
     void info( void );
     void warning( void );
     void error( void );
+    void (Karen::*message_type[4])( void );
 };
 
 #endif
