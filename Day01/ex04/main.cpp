@@ -57,13 +57,11 @@ int main(int argc, char **argv)
   CheckOutputForErrors(output, output_name, input);
 
   std::string get_string;
-  bool find_string = false;
   while (getline(input, get_string)) {
     int i = 0;
     for (i = get_string.find(s1, i++); i != (int) std::string::npos; i = get_string.find(s1, i++)) {
       get_string.erase(i, s1.length());
       get_string.insert(i, s2);
-      find_string = true;
     }
     output << get_string << std::endl;
   }
