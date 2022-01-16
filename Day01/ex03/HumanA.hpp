@@ -7,7 +7,6 @@ class HumanA {
 
   public:
     HumanA( const std::string& name, Weapon& weapon );
-    const std::string& getWeapon( void ) const;
     void  setWeapon( const Weapon& new_weapon);
     void  attack( void );
 
