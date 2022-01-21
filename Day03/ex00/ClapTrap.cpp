@@ -1,7 +1,7 @@
 #include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap() :
- name_(NULL), hitpoints_(10),
+ name_("No_name"), hitpoints_(10),
  energy_points_(10), attack_damage_(0) {
   std::cout << "default ClapTrap is created" << std::endl;
 }
