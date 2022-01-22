@@ -34,3 +34,8 @@ ScavTrap& ScavTrap::operator=(ScavTrap const & rhs) {
 void ScavTrap::guardGate() {
   std::cout << "\033[36m    " << name_ << " is staying on Guard Gate\033[39m" << std::endl;
 }
+
+ScavTrap::ScavTrap() {
+  std::cout << "default ScavTrap is created" << std::endl;
+  SetDefaultPoints();
+}
