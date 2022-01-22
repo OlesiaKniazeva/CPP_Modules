@@ -22,8 +22,6 @@ class ClapTrap {
     int energy_points_;
     int attack_damage_;
 
-  private:
-    void SetDefaultPoints();
 };
 
 
