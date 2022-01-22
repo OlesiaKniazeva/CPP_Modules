@@ -4,7 +4,7 @@ void ScavTrap::SetDefaultPoints() {
   hitpoints_ = 100;
   energy_points_ = 50;
   attack_damage_ = 20;
-   std::cout << "\033[35m    It has: " << hitpoints_ << " hitpoints, "
+  std::cout << "\033[35m    It has: " << hitpoints_ << " hitpoints, "
             << energy_points_ << " energy points" << std::endl
             << "    It can cause: " << attack_damage_
             << " points of damage \033[39m" << std::endl;
@@ -33,4 +33,9 @@ ScavTrap& ScavTrap::operator=(ScavTrap const & rhs) {
 
 void ScavTrap::guardGate() {
   std::cout << "\033[36m    " << name_ << " is staying on Guard Gate\033[39m" << std::endl;
+}
+
+ScavTrap::ScavTrap() {
+  std::cout << "default ScavTrap is created" << std::endl;
+  SetDefaultPoints();
 }
