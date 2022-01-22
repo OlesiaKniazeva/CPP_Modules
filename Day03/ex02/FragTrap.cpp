@@ -36,3 +36,8 @@ FragTrap& FragTrap::operator=(const FragTrap & rhs) {
 void FragTrap::highFivesGuys() {
   std::cout << "\033[94mHey! I am " << name_ <<  " - take high five\033[39m" << std::endl;
 }
+
+FragTrap::FragTrap() {
+  std::cout << "default FragTrap is created" << std::endl;
+  SetDefaultPoints();
+}
