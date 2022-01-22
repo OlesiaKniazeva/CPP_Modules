@@ -1,25 +1,17 @@
 #include "ClapTrap.hpp"
 
-void  ClapTrap::SetDefaultPoints() {
-  hitpoints_ = 10;
-  energy_points_ = 10;
-  attack_damage_ = 0;
-  std::cout << "\033[32m    It has: " << hitpoints_ << " hitpoints, "
-          << energy_points_ << " energy points" << std::endl
-          << "    It can cause: " << attack_damage_
-          << " points of damage \033[39m" << std::endl;
-}
-
 ClapTrap::ClapTrap() :
- name_("No_name") {
+ name_("No_name"), hitpoints_(10), energy_points_(10), attack_damage_(0) {
   std::cout << "default ClapTrap is created" << std::endl;
-  SetDefaultPoints();
 }
 
 ClapTrap::ClapTrap(const std::string & name) :
- name_(name) {
+ name_(name), hitpoints_(10), energy_points_(10), attack_damage_(0) {
   std::cout << "ClapTrap " << name << " is created" << std::endl;
-  SetDefaultPoints();
+  std::cout << "\033[32m    It has: " << hitpoints_ << " hitpoints, "
+      << energy_points_ << " energy points" << std::endl
+      << "    It can cause: " << attack_damage_
+      << " points of damage \033[39m" << std::endl;
 }
 
 ClapTrap::~ClapTrap() {
