@@ -4,7 +4,7 @@ Fixed::Fixed() : fixed_point_(0) {
   std::cout << "Default constructor called" << std::endl;
 }
 
-Fixed::Fixed( const int num ) : fixed_point_(int(num << bits_)) {
+Fixed::Fixed( const int num ) : fixed_point_(num << bits_) {
   std::cout << "Int constructor called" << std::endl;
 }
 
@@ -19,7 +19,7 @@ Fixed::~Fixed() {
 
 Fixed::Fixed( const float num ) {
   std::cout << "Float constructor called" << std::endl;
-  fixed_point_ = (int)(roundf(num *  (1 << bits_)));
+  fixed_point_ = static_cast<int>(roundf(num *  (1 << bits_)));
 }
 
 int Fixed::getRawBits() const {
@@ -31,12 +31,12 @@ void Fixed::setRawBits( int const raw ) {
 }
 
 int Fixed::toInt() const {
-  return (int)fixed_point_ >> bits_;
+  return static_cast<int>(fixed_point_ >> bits_);
 
 }
 
 float Fixed::toFloat() const {
-  float fl = (float)fixed_point_ / (float)(1 << bits_);
+  float fl = static_cast<float>(fixed_point_) / (1 << bits_);
   return fl;
 }
 

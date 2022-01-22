@@ -4,12 +4,12 @@ Fixed::Fixed() : fixed_point_(0) {
 
 }
 
-Fixed::Fixed( const int num ) : fixed_point_((int)num << bits_) {
+Fixed::Fixed( const int num ) : fixed_point_(num << bits_) {
 
 }
 
 Fixed::Fixed( const float num ) {
-  fixed_point_ = (int)roundf(num * (1 << bits_));
+  fixed_point_ = static_cast<int>(roundf(num * (1 << bits_)));
 }
 
 Fixed::~Fixed() {
@@ -28,11 +28,11 @@ void  Fixed::setRawBits( int const raw ) {
 }
 
 float Fixed::toFloat( void ) const {
-  return (float)fixed_point_ / (float)(1 << bits_);
+  return static_cast<float>(fixed_point_) / (1 << bits_);
 }
 
 int Fixed::toInt( void ) const {
-  return (int)(fixed_point_ >> bits_);
+  return static_cast<int>(fixed_point_ >> bits_);
 }
 
 Fixed& Fixed::operator=( Fixed const & rhs ) {
