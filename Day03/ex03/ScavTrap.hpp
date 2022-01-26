@@ -8,7 +8,7 @@ class ScavTrap : virtual public ClapTrap {
   public:
     ScavTrap(const std::string & name);
     ScavTrap(const ScavTrap & rhs);
-    ~ScavTrap();
+    virtual ~ScavTrap();
 
     ScavTrap& operator=(ScavTrap const & rhs);
 
@@ -16,6 +16,9 @@ class ScavTrap : virtual public ClapTrap {
 
   protected:
     ScavTrap();
+    int hits_;
+    int energy_;
+    int damage_;
 
   private:
     void SetDefaultPoints();

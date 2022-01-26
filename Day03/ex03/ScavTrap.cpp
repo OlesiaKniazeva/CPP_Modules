@@ -1,9 +1,12 @@
 #include "ScavTrap.hpp"
 
 void ScavTrap::SetDefaultPoints() {
-  hitpoints_ = 100;
-  energy_points_ = 50;
-  attack_damage_ = 20;
+  hits_ = 100;
+  energy_ = 50;
+  damage_ = 20;
+  hitpoints_ = hits_;
+  energy_points_ = energy_;
+  attack_damage_ = damage_;
   std::cout << "\033[35m    It has: " << hitpoints_ << " hitpoints, "
             << energy_points_ << " energy points" << std::endl
             << "    It can cause: " << attack_damage_

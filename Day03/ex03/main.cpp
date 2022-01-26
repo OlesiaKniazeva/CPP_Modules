@@ -5,9 +5,12 @@ int main()
   DiamondTrap Scott("Scott");
   Scott.whoAmI();
 
-  Scott.attack("Bob");
+  ScavTrap Bob("Bob");
+
+
+  Scott.attack(Bob.getTrapName());
+  Bob.takeDamage(Scott.getAttackDamage());
   Scott.highFivesGuys();
   Scott.guardGate();
   Scott.beRepaired(50);
-  Scott.takeDamage(200);
 }

@@ -7,13 +7,18 @@ class ClapTrap {
   public:
     ClapTrap(const std::string & name);
     ClapTrap(const ClapTrap & rhs);
-    ~ClapTrap();
+    virtual ~ClapTrap();
 
     ClapTrap& operator=(ClapTrap const & rhs);
 
     void attack(std::string const & target);
     void takeDamage(unsigned int amount);
     void beRepaired(unsigned int amount);
+
+    const int& getHitPoints();
+    const int& getEnergyPoints();
+    const int& getAttackDamage();
+    const std::string & getTrapName();
 
   protected:
     ClapTrap();
