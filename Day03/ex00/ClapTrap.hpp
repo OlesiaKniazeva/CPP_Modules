@@ -15,6 +15,11 @@ class ClapTrap {
     void takeDamage(unsigned int amount);
     void beRepaired(unsigned int amount);
 
+    const int& getHitPoints();
+    const int& getEnergyPoints();
+    const int& getAttackDamage();
+    const std::string & getTrapName();
+
   private:
 
     ClapTrap();

@@ -5,8 +5,8 @@ int main()
   ClapTrap Bob("Bob");
   ClapTrap Smith("Smith");
 
-  Bob.attack("Smith");
-  Smith.beRepaired(6);
-  Bob.takeDamage(5);
-  Bob.takeDamage(5);
+  Bob.attack(Smith.getTrapName());
+  Smith.takeDamage(Bob.getAttackDamage());
+  Smith.beRepaired(10);
+
 }

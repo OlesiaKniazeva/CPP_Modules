@@ -33,36 +33,64 @@ ClapTrap& ClapTrap::operator=(const ClapTrap & rhs) {
 }
 
 void ClapTrap::attack(std::string const & target) {
-  std::cout << "ClapTrap" << name_ << " attack " << target
-            << ", causing " << attack_damage_ << " points of damage!"
-            << std::endl;
-  hitpoints_--;
-  if (hitpoints_ < 1) {
-    std::cout << "\033[31m    No hitpoints left\033[39m" << std::endl;
+  if (energy_points_ <= 0 || hitpoints_ <= 0) {
+    if (energy_points_ <= 0) {
+      std::cout << "ClapTrap " << name_ << " has no energy points"
+                << " to attack" << std::endl;
+    }
+    if (hitpoints_ <= 0) {
+      std::cout << "ClapTrap " << name_ << " has no hitpoints"
+                << " to attack" << std::endl;
+    }
   }
   else {
-    std::cout << "\033[33m   Now it has: " << hitpoints_
-            << " hitpoints\033[39m" << std::endl;
+    std::cout << "ClapTrap " << name_ << " attack " << target
+              << ", causing " << attack_damage_ << " points of damage!"
+              << std::endl;
+    energy_points_--;
   }
 }
 
 void ClapTrap::takeDamage(unsigned int amount) {
-  energy_points_ -= amount;
-  std::cout << "ClapTrap" << name_ << " damaged to " << amount
+  hitpoints_ -= amount;
+  std::cout << "ClapTrap " << name_ << " damaged to " << amount
             << " points" << std::endl;
-  if (energy_points_ < 1) {
-    std::cout << "\033[31m    It has no more energy points\033[39m" << std::endl;
+  if (hitpoints_ <= 0) {
+    std::cout << "\033[31m    It has no more hitpoints\033[39m" << std::endl;
   }
   else {
-    std::cout << "\033[33m    Now it has: " << energy_points_
-      << " energy points\033[39m" << std::endl;
+    std::cout << "\033[33m    Now it has: " << hitpoints_
+      << " hitpoints\033[39m" << std::endl;
   }
 }
 
 void ClapTrap::beRepaired(unsigned int amount) {
-  energy_points_ += amount;
-  std::cout << "ClapTrap" << name_ << " recieved " << amount
-            << " energy points" << std::endl
-            << "\033[33m    Now it has: " << energy_points_
-            << " energy points\033[39m" << std::endl;
+  if (energy_points_ <= 0) {
+    std::cout << "ClapTrap " << name_ << " has no energy points"
+              << " to repair itself" << std::endl;
+  }
+  else {
+  energy_points_--;
+  hitpoints_ += amount;
+    std::cout << "ClapTrap " << name_ << " received " << amount
+              << " hitpoints back" << std::endl
+              << "\033[33m    Now it has: " << hitpoints_
+              << " hitpoints\033[39m" << std::endl;
+  }
+}
+
+const int& ClapTrap::getHitPoints() {
+  return (hitpoints_);
+}
+
+const int& ClapTrap::getEnergyPoints() {
+  return (energy_points_);
+}
+
+const int& ClapTrap::getAttackDamage() {
+  return (attack_damage_);
+}
+
+const std::string & ClapTrap::getTrapName() {
+  return (name_);
 }
