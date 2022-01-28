@@ -26,7 +26,7 @@ $(NAME): $(OBJS)
 clean:
 		rm -rf $(O_DIR)
 
-flcean: clean
-		rn -rf $(NAME)
+fclean: clean
+		rm -rf $(NAME)
 
 re : fclean all
