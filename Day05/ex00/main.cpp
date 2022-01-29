@@ -2,6 +2,18 @@
 
 int main()
 {
+  Bureaucrat bb("God", 45);
+  Bureaucrat nn(bb);
+
+      std::cout << bb << std::endl;
+      std::cout << nn << std::endl;
+
+      nn = (Bureaucrat("yyy", 5));
+
+      std::cout << nn << std::endl;
+
+    std::cout << "-------------" << std::endl;
+
   try
   {
       Bureaucrat bur("Gosha", 150);
