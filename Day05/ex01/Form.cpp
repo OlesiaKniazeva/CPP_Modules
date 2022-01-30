@@ -20,13 +20,11 @@ Form::~Form() {
 
 Form::Form(const Form & rhs)
     : name_(rhs.name_), grade_(rhs.grade_) {
-    CheckGradeForException();
     *this = rhs;
 }
 
 Form & Form::operator=(const Form & rhs) {
   is_signed_ = rhs.is_signed_;
-  CheckGradeForException();
   return *this;
 }
 
@@ -44,9 +42,13 @@ bool Form::getSign() const {
 
 
 void Form::beSigned(const Bureaucrat & bur) {
-  if (bur.GetGrade() < grade_) {
+  if (is_signed_) {
+     std::cout << bur.GetName() << " couldn't sign \"" << name_
+              << "\" because it's already signed" << std::endl;
+  }
+  else if (bur.GetGrade() < grade_) {
     is_signed_ = true;
-    std::cout << bur.GetName() << " signed " << name_ << std::endl;
+    std::cout << bur.GetName() << " signed \"" << name_ << "\"" << std::endl;
   }
   else {
     std::cout << bur.GetName() << " couldn't sign \"" << name_

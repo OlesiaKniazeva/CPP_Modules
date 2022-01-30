@@ -51,6 +51,11 @@ void Bureaucrat::DecrementGrade() {
   CheckGradeForException();
 }
 
+void Bureaucrat::signForm(Form& form) {
+ form.beSigned(*this);
+}
+
+
 Bureaucrat::GradeTooHighException::GradeTooHighException(std::string& error) : error_(error.c_str()) {
 }
 

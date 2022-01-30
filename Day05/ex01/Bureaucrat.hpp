@@ -6,6 +6,9 @@
 #include <sstream>
 #include <stdexcept>
 
+#include "Form.hpp"
+
+class Form;
 class Bureaucrat {
   public:
     Bureaucrat(const std::string name, int grade);
@@ -35,6 +38,8 @@ class Bureaucrat {
       private:
        const char * error_;
     };
+
+    void signForm(Form& form);
 
   private:
     void CheckGradeForException();

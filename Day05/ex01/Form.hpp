@@ -3,6 +3,7 @@
 
 #include "Bureaucrat.hpp"
 
+class Bureaucrat;
 class Form {
   public:
     Form(const std::string name, int grade);

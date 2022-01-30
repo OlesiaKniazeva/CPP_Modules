@@ -10,11 +10,10 @@ int main()
     std::cout << get_money << std::endl;
     get_money.beSigned(gleb);
     std::cout << get_money << std::endl;
-    get_money.beSigned(anton);
+    anton.signForm(get_money);
     std::cout << get_money << std::endl;
 
     Form to_add_data("to add data", 151);
-
 
   }
   catch(const std::exception& e)
