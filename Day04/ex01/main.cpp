@@ -3,6 +3,14 @@
 
 int main() {
   {
+    // Animal * pop = new Dog;
+    Dog bob;
+    Dog bon(bob);
+    
+  }
+      std::cout << "-------------" << std::endl;
+
+  {
     Animal *dog = new Dog();
     std::string idea = "Wow, wow, Happy to see you!!!!";
     dog->SetIdea(idea, 1);

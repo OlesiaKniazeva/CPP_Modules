@@ -11,13 +11,21 @@ Cat::~Cat() {
 }
 
 Cat::Cat(const Cat& rhs) {
-  *this = rhs;
+  brain_ = new Brain();
+  for (int i = 0; i < 100; ++i) {
+    std::string idea = rhs.GetIdea(i + 1);
+    brain_->SetIdea(idea, i + 1);
+  }
 }
 
 Cat & Cat::operator=(const Cat& rhs) {
-  type_ = rhs.type_;
-  brain_ = rhs.brain_;
-  return (*this);
+  delete brain_;
+  brain_ = new Brain();
+  for (int i = 0; i < 100; ++i) {
+    std::string idea = rhs.GetIdea(i + 1);
+    brain_->SetIdea(idea, i + 1);
+  }
+  return *this;
 }
 
 void Cat::makeSound() const {

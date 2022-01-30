@@ -11,15 +11,21 @@ Dog::~Dog() {
 }
 
 Dog::Dog(const Dog & rhs) {
-  delete brain_;
-  *this = rhs;
+  brain_ = new Brain();
+  for (int i = 0; i < 100; ++i) {
+    std::string idea = rhs.GetIdea(i + 1);
+    brain_->SetIdea(idea, i + 1);
+  }
 }
 
 Dog & Dog::operator=(const Dog & rhs) {
-  type_ = rhs.type_;
   delete brain_;
-  brain_ = rhs.brain_;
-  return (*this);
+  brain_ = new Brain();
+  for (int i = 0; i < 100; ++i) {
+    std::string idea = rhs.GetIdea(i + 1);
+    brain_->SetIdea(idea, i + 1);
+  }
+  return *this;
 }
 
 void Dog::makeSound() const {

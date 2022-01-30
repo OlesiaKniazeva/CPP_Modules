@@ -20,16 +20,28 @@ Character::~Character() {
 }
 
 Character::Character(const Character& rhs) {
- DeleteAllMaterias();
-  *this = rhs;
+  name_ = rhs.name_;
+  for (int i = 0; i < 4; ++i) {
+    if (rhs.type_[i]) {
+      type_[i] = rhs.type_[i]->clone();
+    }
+    else {
+      type_[i] = NULL;
+    }
+  }
 }
 
 Character & Character::operator=(const Character & rhs) {
   DeleteAllMaterias();
-  for (int i = 0; i < 4; ++i) {
-    type_[i] = rhs.type_[i];
-  }
   name_ = rhs.name_;
+  for (int i = 0; i < 4; ++i) {
+    if (rhs.type_[i]) {
+      type_[i] = rhs.type_[i]->clone();
+    }
+    else {
+      type_[i] = NULL;
+    }
+  }
   return *this;
 }
 
