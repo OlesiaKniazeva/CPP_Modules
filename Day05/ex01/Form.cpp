@@ -42,17 +42,14 @@ bool Form::getSign() const {
 
 
 void Form::beSigned(const Bureaucrat & bur) {
-  if (is_signed_) {
-     std::cout << bur.GetName() << " couldn't sign \"" << name_
-              << "\" because it's already signed" << std::endl;
-  }
-  else if (bur.GetGrade() < grade_) {
-    is_signed_ = true;
-    std::cout << bur.GetName() << " signed \"" << name_ << "\"" << std::endl;
+  if (bur.GetGrade() > grade_) {
+    std::string error = "Form couldn't be signed, bureaucrat grade is "
+        + std::to_string(bur.GetGrade()) + " but requested grade is "
+        + std::to_string(grade_);
+    throw GradeTooLowException(error);
   }
   else {
-    std::cout << bur.GetName() << " couldn't sign \"" << name_
-              << "\" because his grade is too low" << std::endl;
+    is_signed_ = true;
   }
 }
 

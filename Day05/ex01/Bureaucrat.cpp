@@ -52,7 +52,16 @@ void Bureaucrat::DecrementGrade() {
 }
 
 void Bureaucrat::signForm(Form& form) {
- form.beSigned(*this);
+  if (grade_ > form.getGrade()) {
+    std::cout << "Bureaucrat couldn't sign " << form.getName()
+              << "his grade is " << grade_ << " but requested grade is "
+              << form.getGrade() << std::endl;
+  }
+  else {
+    form.beSigned(*this);
+      std::cout << "Bureaucrat " << name_
+              << " signed form \"" << form.getName() << "\"" << std::endl;
+  }
 }
 
 

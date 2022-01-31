@@ -8,8 +8,8 @@ int main()
     Bureaucrat anton("Anton", 1);
     Form get_money("get money", 50);
     std::cout << get_money << std::endl;
-    get_money.beSigned(gleb);
-    std::cout << get_money << std::endl;
+    // get_money.beSigned(gleb);
+    // std::cout << get_money << std::endl;
     anton.signForm(get_money);
     std::cout << get_money << std::endl;
 
