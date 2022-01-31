@@ -90,3 +90,6 @@ Form::GradeTooLowException::GradeTooLowException(std::string& error) : error_(er
 const char * Form::GradeTooLowException::what() const throw() {
   return (error_);
 }
+
+Form::GradeTooLowException::~GradeTooLowException() {
+}

@@ -60,12 +60,20 @@ const char * Form::GradeTooHighException::what() const throw() {
   return (error_);
 }
 
+Form::GradeTooHighException::~GradeTooHighException() {
+}
+
+
 Form::GradeTooLowException::GradeTooLowException(std::string& error) : error_(error.c_str()) {
 }
 
 const char * Form::GradeTooLowException::what() const throw() {
   return (error_);
 }
+
+Form::GradeTooLowException::~GradeTooLowException() {
+}
+
 
 std::ostream& operator<<(std::ostream& output, const Form& f) {
   output << "Form is named: \"" << f.getName()

@@ -27,6 +27,7 @@ class Bureaucrat {
       public:
         GradeTooHighException(std::string& error);
         virtual const char* what() const throw();
+        virtual ~GradeTooHighException();
       private:
         const char *error_;
     };
@@ -35,6 +36,7 @@ class Bureaucrat {
       public:
         GradeTooLowException(std::string& error);
         virtual const char* what() const throw();
+        virtual ~GradeTooLowException();
       private:
        const char * error_;
     };

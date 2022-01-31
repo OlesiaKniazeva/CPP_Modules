@@ -20,6 +20,7 @@ class Form {
         public:
           GradeTooLowException(std::string& error);
           virtual const char* what() const throw();
+          virtual ~GradeTooLowException();
         private:
         const char * error_;
     };
