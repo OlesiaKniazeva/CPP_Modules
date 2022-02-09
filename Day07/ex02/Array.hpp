@@ -9,14 +9,14 @@ class Array {
   public:
 
   Array() : length_(0) {
-    data_ = nullptr;
+    data_ = NULL;
   }
 
   Array(unsigned int n) : length_(n) {
     if (n)
       data_ = new T[n];
     else {
-      data_ = nullptr;
+      data_ = NULL;
     }
   }
 
@@ -29,7 +29,7 @@ class Array {
       }
     }
     else {
-      data_ = nullptr;
+      data_ = NULL;
     }
   }
 
@@ -43,7 +43,7 @@ class Array {
       }
     }
     else {
-      data_ = nullptr;
+      data_ = NULL;
     }
     return *this;
   }
