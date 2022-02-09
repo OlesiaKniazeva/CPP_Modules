@@ -4,9 +4,9 @@ SRCS = main.cpp
 
 O_DIR = obj
 
-CC = clang++ -std=c++98
+CC = c++ -std=c++98
 
-CFLAGS = -glldb -Wall -Wextra -Werror
+CFLAGS =  -Wall -Wextra -Werror
 
 OBJS = $(addprefix $(O_DIR)/, $(patsubst %.cpp, %.o, $(SRCS)))
 

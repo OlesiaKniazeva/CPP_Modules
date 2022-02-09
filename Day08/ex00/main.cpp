@@ -23,7 +23,7 @@ int main()
     catch(const std::exception & e) {
         std::cerr << "No element in container" << std::endl;
     }
-    
+    std::cout << "------------" << '\n';
     try {
           std::vector<int> f;
           std::cout << easyfind(f, 40) << std::endl;
